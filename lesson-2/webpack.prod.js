@@ -3,8 +3,7 @@ const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const { COMMON_CONFIG, PATHS } = require('./webpack.common.js');
 
@@ -49,7 +48,7 @@ const PROD_CONFIG = {
             },
             {
                 test: /\.css?$/,
-                include: /node_modules/,
+                include: [PATHS.src],
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
@@ -59,7 +58,10 @@ const PROD_CONFIG = {
     },
     optimization: {
         minimizer: [
-            new OptimizeCSSAssetsPlugin({}),
+            new UglifyJsPlugin({
+                test: /\.js(\?.*)?$/i
+            }),
+            new OptimizeCSSAssetsPlugin(),
         ],
     },
     plugins: [
