@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #aaa;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+ul {
+  display: inline-block;
+  list-style: none;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
