@@ -35,6 +35,7 @@ const CONFIG = {
                             ]
                         ],
                         plugins: [
+                            '@babel/plugin-syntax-dynamic-import',
                             '@babel/plugin-transform-runtime',
                             '@babel/plugin-proposal-object-rest-spread',
                             '@babel/plugin-transform-async-to-generator'
