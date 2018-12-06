@@ -1,4 +1,4 @@
-import RestService from 'services/Rest.service';
+import RestService from 'services/RestService';
 import { NEWS, SOURCES, API_KEY } from 'config/Endpoint';
 import { handleServerError } from 'utils/errorHandler';
 
