@@ -25,7 +25,7 @@ class ErrorHandlerPopup extends Component {
         body.appendChild(background);
     }
 
-    createPopup (title, message) {
+    static createPopup (title, message) {
         const popup = document.createElement('div');
         popup.innerHTML = `
             <div class="popup-container">
@@ -42,7 +42,7 @@ class ErrorHandlerPopup extends Component {
     set error (data) {
         if (data) {
             const { code, message } = data;
-            this.children = this.createPopup(code, message);
+            this.children = ErrorHandlerPopup.createPopup(code, message);
             this.openPopup();
         } else {
             this.closePopup();

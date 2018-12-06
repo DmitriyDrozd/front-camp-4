@@ -1,4 +1,4 @@
-import NewsLetterSerice from 'services/NewsLetterService';
+import NewsLetterSerice from 'services/NewsLetter.service';
 import CategorySelect from 'components/CategorySelect';
 import NewsList from 'components/NewsList';
 import Spinner from 'components/Spinner';
