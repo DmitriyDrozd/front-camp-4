@@ -1,0 +1,22 @@
+const express = require('express');
+const router = express.Router();
+
+const DB_NAME = './data/db.json';
+const NewsBusinessLogic = require('../business-logic/news');
+const logger = require('../config/logger');
+const newsApi = new NewsBusinessLogic(DB_NAME);
+
+/**
+ * Router API
+ */
+router.use('/', logger);
+router.get('/news', newsApi.getAll);
+router.get('/news/:id', newsApi.getById);
+router.post('/news/:id', newsApi.post);
+router.put('/news/:id', newsApi.put);
+router.delete('/news/:id', newsApi.delete);
+
+router.use(NewsBusinessLogic.errorHandler);
+router.use('*', NewsBusinessLogic.routeNotFound);
+
+module.exports = router;
