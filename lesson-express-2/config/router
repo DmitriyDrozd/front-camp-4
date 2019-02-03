@@ -1,0 +1,24 @@
+const express = require('express');
+const router = express.Router();
+
+const NewsRepo = require('../business-logic/news');
+const NewsAPI = require('../api/news');
+const logger = require('../config/logger');
+
+const newsRepo = new NewsRepo();
+const newsApi = new NewsAPI(newsRepo);
+
+/**
+ * Router API
+ */
+router.use('/', logger);
+router.get('/news', newsApi.getAll);
+router.get('/news/:id', newsApi.getById);
+router.post('/news/:id', newsApi.post);
+router.put('/news/:id', newsApi.put);
+router.delete('/news/:id', newsApi.delete);
+
+router.use(NewsAPI.errorHandler);
+router.use('*', NewsAPI.routeNotFound);
+
+module.exports = router;
