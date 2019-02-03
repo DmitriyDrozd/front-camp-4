@@ -1,22 +1,31 @@
 const express = require('express');
 const router = express.Router();
 
-const NewsRepo = require('../business-logic/news');
+const NewsService = require('../business-logic/news');
 const NewsAPI = require('../api/news');
 const logger = require('../config/logger');
+const {
+    authenticate,
+    loggedInCheck,
+    registerUser,
+    successRedirect,
+} = require('../config/authentification');
 
-const newsRepo = new NewsRepo();
-const newsApi = new NewsAPI(newsRepo);
+const newsService = new NewsService();
+const newsApi = new NewsAPI(newsService);
 
 /**
  * Router API
  */
 router.use('/', logger);
+router.post('/login', authenticate, successRedirect);
+router.post('/register', registerUser);
+
 router.get('/news', newsApi.getAll);
 router.get('/news/:id', newsApi.getById);
 router.post('/news/:id', newsApi.post);
-router.put('/news/:id', newsApi.put);
-router.delete('/news/:id', newsApi.delete);
+router.put('/news/:id', authenticate, loggedInCheck, newsApi.put);
+router.delete('/news/:id', authenticate, loggedInCheck, newsApi.delete);
 
 router.use(NewsAPI.errorHandler);
 router.use('*', NewsAPI.routeNotFound);

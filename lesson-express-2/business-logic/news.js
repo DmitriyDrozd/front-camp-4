@@ -1,17 +1,8 @@
-const mongoose = require('mongoose');
-const Article = require('../model/article');
-
-const URL = 'mongodb://localhost:27017';
-const DB_NAME = 'localnews';
-const CONNECT_SETTINGS = { useNewUrlParser: true };
+const Article = require('../model/Article');
 
 const FIELDS = { _id: 1, title: 1, description: 1, author: 1, created: 1 };
 
 class NewsService {
-    constructor (url = URL, dbName = DB_NAME) {
-        mongoose.connect(`${url}/${dbName}}`, CONNECT_SETTINGS);
-    }
-
     /**
      * Returns all news
      * @param resolve
