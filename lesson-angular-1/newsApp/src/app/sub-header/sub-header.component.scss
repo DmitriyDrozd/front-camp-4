@@ -1,0 +1,26 @@
+@import "../../variables";
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-content: baseline;
+  padding: $normal-content-padding;
+}
+
+.filter-wrapper {
+  display: flex;
+  align-content: center;
+
+  .filter {
+    display: inline-block;
+
+    &:not(:last-child) {
+      padding-right: $normal-content-padding;
+    }
+  }
+}
+
+select,
+input[type="text"] {
+  width: 200px;
+}

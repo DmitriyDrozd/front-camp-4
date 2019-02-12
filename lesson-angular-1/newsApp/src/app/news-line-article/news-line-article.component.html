@@ -1,0 +1,17 @@
+<div class="preview">
+  <img class="article-thumb" src="" alt="thumb">
+  <div class="article-content">
+    <h3>{{ data.title }}</h3>
+    <p>{{ data.description }}</p>
+    <a routerLink="/article/{{ data.url }}">Read more...</a>
+  </div>
+</div>
+<div class="aside">
+  <div class="created">
+    {{ data.created | date }}
+  </div>
+  <div class="controls" *ngIf="isCreator">
+    <button>Edit</button>
+    <button>Delete</button>
+  </div>
+</div>

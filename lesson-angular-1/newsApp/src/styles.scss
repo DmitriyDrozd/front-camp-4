@@ -1,0 +1,13 @@
+@import "variables";
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 0 auto;
+  padding: $normal-content-padding;
+  width: $normal-app-width;
+}

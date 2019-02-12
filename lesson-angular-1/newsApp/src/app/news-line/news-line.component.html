@@ -1,0 +1,6 @@
+<app-news-line-article
+  *ngFor="let article of articles"
+  [data]="article"
+>
+</app-news-line-article>
+<a (click)="onLoadMore()" class="load-more">Load more</a>

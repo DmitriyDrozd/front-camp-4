@@ -1,0 +1,8 @@
+@import "../../variables";
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #000;
+  padding: $normal-content-padding;
+}

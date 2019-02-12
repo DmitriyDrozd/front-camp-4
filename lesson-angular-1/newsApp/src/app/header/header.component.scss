@@ -1,0 +1,33 @@
+@import "../../variables";
+
+.header-wrapper,
+.name-wrapper {
+  border: 1px solid #000;
+}
+
+.upper-wrapper,
+.name-wrapper {
+  padding: $normal-content-padding;
+}
+
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  background: #fff;
+}
+
+.upper-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-wrapper {
+  border-left: 0;
+  border-right: 0;
+  text-align: center;
+  background: #ebf49c;
+}
+
+h1 {
+  margin: 0;
+}
