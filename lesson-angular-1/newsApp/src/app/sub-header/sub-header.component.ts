@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SourceService} from "../source.service";
 import {TitleService} from "../title.service";
 import {Router} from "@angular/router";
+import {ISource} from "../isource";
 
 @Component({
   selector: 'app-sub-header',
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class SubHeaderComponent implements OnInit {
 
-  public sources: string[] = [];
+  public sources: ISource[] = [];
 
   constructor(
     private router: Router,
@@ -19,7 +20,8 @@ export class SubHeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sources = this.sourceService.getAll();
+    this.sourceService.getAll()
+      .subscribe((data: ISource[]) => { this.sources = data; });
   }
 
   onChangeSource(sourceName: string) {

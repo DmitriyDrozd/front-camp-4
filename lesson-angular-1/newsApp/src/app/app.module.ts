@@ -10,6 +10,7 @@ import { SubHeaderComponent } from './sub-header/sub-header.component';
 import { NewsLineArticleComponent } from './news-line-article/news-line-article.component';
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { ArticleFormComponent } from './article-form/article-form.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ArticleFormComponent } from './article-form/article-form.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

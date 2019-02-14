@@ -1,18 +1,20 @@
-import { Injectable } from '@angular/core';
-import { sources } from '../mocks/sources';
+import {Injectable} from '@angular/core';
+import {LOCAL_ENDPOINT} from '../assets/constants';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SourceService {
 
-  private readonly sources: string[] = [];
+  // private sources: ISource[] = [];
+  private localEndpoint: string;
 
-  constructor() {
-    this.sources = [...sources];
+  constructor(private http: HttpClient) {
+    this.localEndpoint = `${LOCAL_ENDPOINT}/sources`;
   }
 
   getAll() {
-    return this.sources;
+    return this.http.get(this.localEndpoint);
   }
 }

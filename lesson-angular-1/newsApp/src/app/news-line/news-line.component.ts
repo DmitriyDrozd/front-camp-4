@@ -15,8 +15,6 @@ export class NewsLineComponent implements OnInit {
 
   public articles: IArticle[] = [];
 
-  private loadMore: () => {};
-
   constructor(
     private newsService: NewsService,
     private route: ActivatedRoute,
@@ -24,19 +22,13 @@ export class NewsLineComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.articles = this.newsService.getAll();
+    this.newsService.getAll()
+      .subscribe((data: IArticle[]) => { this.articles = data; });
 
-    this.route.data.subscribe(data => {
-      this.loadMore = data.loadMore;
-    });
-
-    // FIXME: solution until real API is connected
     const title: string = 'News App';
     this.titleService.getEmit().emit(title);
   }
 
-  onLoadMore() {
-    this.loadMore();
-  }
+  onLoadMore() { }
 
 }

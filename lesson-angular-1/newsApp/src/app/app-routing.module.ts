@@ -9,16 +9,12 @@ const routes: Routes = [
   {
     path: '',
     component: NewsLineComponent,
-    data: {
-      // It was made instead of @Output method because of inialization of component in router, not in template.
-      loadMore: () => { console.log('loading more!'); },
-    }
   },
   {
     path: '',
     component: SubHeaderComponent,
     outlet: 'sub-header',
-    pathMatch: "full",
+    pathMatch: 'full',
   },
   {
     path: 'article/:url',

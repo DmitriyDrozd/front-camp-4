@@ -1,8 +1,9 @@
+@import "../../colors";
 @import "../../variables";
 
 .header-wrapper,
 .name-wrapper {
-  border: 1px solid #000;
+  border: 1px solid $container-border-color;
 }
 
 .upper-wrapper,
@@ -13,7 +14,7 @@
 .header-wrapper {
   position: sticky;
   top: 0;
-  background: #fff;
+  background: $header-wrapper-color;
 }
 
 .upper-wrapper {
@@ -25,7 +26,8 @@
   border-left: 0;
   border-right: 0;
   text-align: center;
-  background: #ebf49c;
+  background: $header-background-color;
+  color: $header-font-color;
 }
 
 h1 {

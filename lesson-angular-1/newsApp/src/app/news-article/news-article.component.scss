@@ -1,10 +1,11 @@
+@import "../../colors";
 @import "../../variables";
 
 :host {
   display: flex;
   justify-content: space-between;
   padding: $normal-content-padding;
-  border: 1px solid #000;
+  border: 1px solid $container-border-color;
   margin: $normal-content-padding 0;
 
   &:first-child,

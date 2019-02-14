@@ -1,0 +1,19 @@
+$primary-color: #ebf49c;
+$secondary-color: #bff49c;
+$complementary-color: #a59cf4;
+
+$container-border-color: $secondary-color;
+$header-font-color: #333;
+$header-wrapper-color: #fff;
+$header-background-color: #ebf49c;
+
+$btn-border-color: $secondary-color;
+
+$btn-primary-background: #fff;
+$btn-primary-hover-background: $primary-color;
+
+$btn-secondary-background: $secondary-color;
+$btn-secondary-hover-background: darken($secondary-color, 20%);
+
+$btn-danger-background: $complementary-color;
+$btn-danger-hover-background: darken($complementary-color, 20%);

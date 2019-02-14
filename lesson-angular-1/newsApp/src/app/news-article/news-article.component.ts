@@ -24,9 +24,12 @@ export class NewsArticleComponent implements OnInit {
     this.route.params.subscribe(params => {
       const url: string = params.url;
 
-      this.data = this.newsService.getByUrl(url);
-      this.isCreator = this.data.author === this.userName;
-    })
+      this.newsService.getByUrl(url)
+        .subscribe((data: IArticle) => {
+          this.data = data;
+          this.isCreator = this.data.author === this.userName;
+        });
+    });
   }
 
 }
