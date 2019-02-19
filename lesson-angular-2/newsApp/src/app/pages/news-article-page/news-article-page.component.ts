@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IArticle} from "../../interfaces/iarticle";
 import {NewsService} from "../../services/News/news.service";
 import {ActivatedRoute} from "@angular/router";
+import {URLServiceService} from "../../services/URLService/urlservice.service";
 
 @Component({
   selector: 'app-news-article-page',
@@ -17,18 +18,21 @@ export class NewsArticlePageComponent implements OnInit {
 
   constructor(
     private newsService: NewsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private urlService: URLServiceService,
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       const url: string = params.url;
 
-      this.newsService.getByUrl(url)
-        .subscribe((data: IArticle) => {
+      this.newsService.subscribeToArticle((data: IArticle) => {
           this.data = data;
           this.isCreator = this.data.author === this.userName;
-        });
+        }
+      );
+
+      this.newsService.getByUrl(url, false);
     });
   }
 

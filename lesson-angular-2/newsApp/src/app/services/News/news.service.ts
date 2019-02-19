@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {NEWS, LOCAL_ENDPOINT} from '../../config/Endpoint';
 import {INewsCache} from "../../interfaces/inews-cache";
 import {INewsResponse} from "../../interfaces/inews-response";
+import {URLServiceService} from "../URLService/urlservice.service";
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,14 @@ export class NewsService {
   private lastSource: string = '';
   private endpoint: string = `${NEWS}&pageSize=${this.count}`;
   private newsCache: INewsCache = {};
-  private newsEmitter: EventEmitter<IArticle[]> = new EventEmitter<IArticle[]>();
 
-  constructor(private http: HttpClient) {}
+  private newsEmitter: EventEmitter<IArticle[]> = new EventEmitter<IArticle[]>();
+  private articleEmitter: EventEmitter<IArticle> = new EventEmitter<IArticle>();
+
+  constructor(
+    private http: HttpClient,
+    private urlService: URLServiceService,
+  ) {}
 
   getRandom() {
     this.lastPage = 1;
@@ -88,9 +94,30 @@ export class NewsService {
     return this.newsEmitter;
   }
 
-  getByUrl(url: string) {
-    const request = this.http.get(`${this.localEndpoint}/${url}`);
+  getByUrl(url: string, isLocal: boolean = false) {
+    if (isLocal) {
+      const endpoint = `${this.localEndpoint}/${url}`;
+      const request = this.http.get(endpoint);
 
-    return request;
+      request.subscribe((data: IArticle) => {
+        this.articleEmitter.emit(data);
+      });
+
+      return this.articleEmitter;
+    }
+
+    const article: IArticle = this.newsCache[this.lastSource].find((item: IArticle) => {
+      const _url = this.urlService.getParsedTitle(item.title);
+
+      return _url === url;
+    });
+
+    this.articleEmitter.emit(article);
+
+    return this.articleEmitter;
+  }
+
+  subscribeToArticle(callback: (data: IArticle) => void) {
+    this.articleEmitter.subscribe(callback);
   }
 }

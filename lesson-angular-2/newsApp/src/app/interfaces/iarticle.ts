@@ -4,11 +4,11 @@ export interface IArticle {
   content?: string,
   created?: any,
   publishedAt?: string,
-  source: {
+  source?: {
     id: string,
     name: string,
   },
   author: string,
   url: string,
-  urlToImage: string,
+  urlToImage?: string,
 }

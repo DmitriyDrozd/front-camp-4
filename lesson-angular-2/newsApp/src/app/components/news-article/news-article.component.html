@@ -1,10 +1,10 @@
 <div class="article">
-  <img class="article-picture" src="" alt="picture">
+  <img class="article-picture" src="{{ article.urlToImage }}" alt="picture">
   <div class="article-content">
     <h3>{{ article.title }}</h3>
     <p>{{ article.content }}</p>
-    <p>Date: {{ article.created | date: "dd MMM yyyy, hh:mm" }}</p>
-    <p>Author: {{ article.author }}</p>
+    <p>Date: {{ article.publishedAt || article.created | date: "dd MMM yyyy, hh:mm" }}</p>
+    <p *ngIf="!!article.author">Author: {{ article.author }}</p>
   </div>
 </div>
 <div class="aside">
