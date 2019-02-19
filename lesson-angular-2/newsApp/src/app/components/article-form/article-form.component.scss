@@ -1,0 +1,56 @@
+@import "../../../colors";
+@import "../../../variables";
+
+.article-form {
+  border: 1px solid $container-border-color;
+  display: flex;
+  justify-content: space-around;
+  padding: $normal-content-padding;
+  margin: 0 auto;
+  width: 700px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 300px;
+    max-width: 300px;
+  }
+
+  textarea {
+    min-height: 150px;
+  }
+
+  .form-input {
+    padding: $normal-content-padding;
+
+    &:not(.source-input) {
+      label {
+          display: block;
+      }
+    }
+
+    .source-radio-group {
+      display: inline-block;
+      padding-left: $normal-content-padding;
+
+      label {
+        display: inline-block;
+      }
+    }
+  }
+
+  .form-controls {
+    display: flex;
+    justify-content: space-between;
+    padding: $normal-content-padding;
+
+    button {
+      width: 120px;
+    }
+  }
+}

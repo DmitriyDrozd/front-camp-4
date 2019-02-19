@@ -1,0 +1,43 @@
+@import "../../../colors";
+@import "../../../variables";
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  padding: $normal-content-padding;
+  border: 1px solid $container-border-color;
+  margin: $normal-content-padding 0;
+
+  &:first-child,
+  &:last-child {
+    padding: 0 $normal-content-padding;
+  }
+}
+
+.article {
+  display: flex;
+
+  .article-picture {
+    flex-basis: 250px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .article-content {
+    display: inline-block;
+    flex-grow: 1;
+    padding-left: $normal-content-padding;
+  }
+}
+
+.aside {
+  display: flex;
+
+  .controls {
+    button {
+      display: block;
+      margin: $normal-content-padding 0;
+      width: 100px;
+    }
+  }
+}

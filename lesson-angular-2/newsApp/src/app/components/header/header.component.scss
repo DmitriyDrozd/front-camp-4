@@ -1,0 +1,35 @@
+@import "../../../colors";
+@import "../../../variables";
+
+.header-wrapper,
+.name-wrapper {
+  border: 1px solid $container-border-color;
+}
+
+.upper-wrapper,
+.name-wrapper {
+  padding: $normal-content-padding;
+}
+
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  background: $header-wrapper-color;
+}
+
+.upper-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-wrapper {
+  border-left: 0;
+  border-right: 0;
+  text-align: center;
+  background: $header-background-color;
+  color: $header-font-color;
+}
+
+h1 {
+  margin: 0;
+}
