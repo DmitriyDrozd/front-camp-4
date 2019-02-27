@@ -1,0 +1,31 @@
+<div class="filter-wrapper">
+  <div class="filter">
+    <select
+      class="source-select"
+      (change)="onChangeSource($event.target.value)"
+    >
+      <option value disabled selected>Select news source...</option>
+      <option *ngFor="let source of sources">
+        {{ source.name }}
+      </option>
+    </select>
+  </div>
+  <div class="filter">
+    <input
+      type="text"
+      placeholder="Filter articles..."
+      #filterKeywords
+    >
+    <button
+      class="btn btn-primary"
+      (click)="onKeywordsChange(filterKeywords.value)"
+    >Filter</button>
+  </div>
+  <div class="filter checkbox-filter">
+    <input type="checkbox" id="createdByMe">
+    <label for="createdByMe">Only created by me</label>
+  </div>
+</div>
+<div class="controls">
+  <button class="btn btn-secondary" (click)="onChangeRoute('/create')">Add article</button>
+</div>

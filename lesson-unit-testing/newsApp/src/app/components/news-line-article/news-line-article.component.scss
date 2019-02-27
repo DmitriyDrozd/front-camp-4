@@ -1,0 +1,41 @@
+@import "../../../colors";
+@import "../../../variables";
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  padding: $normal-content-padding;
+  border: 1px solid $container-border-color;
+  margin: $normal-content-padding 0;
+}
+
+.preview {
+  display: flex;
+
+  .article-thumb {
+    flex-basis: 150px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .article-content {
+    display: inline-block;
+    flex-grow: 1;
+  }
+}
+
+.aside {
+  display: flex;
+
+  .created {
+    padding-right: $normal-content-padding;
+  }
+
+  .controls {
+    button {
+      display: block;
+      margin: $normal-content-padding 0;
+      width: 100px;
+    }
+  }
+}

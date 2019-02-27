@@ -1,0 +1,6 @@
+<app-news-line-article
+  *ngFor="let article of articles"
+  [data]="article"
+  [isControlsAvailable]="isCreator(article.author)"
+>
+</app-news-line-article>

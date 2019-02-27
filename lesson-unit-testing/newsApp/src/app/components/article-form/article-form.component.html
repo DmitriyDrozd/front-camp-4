@@ -1,0 +1,53 @@
+<form class="article-form" ngModel="article" (submit)="preventSubmit($event)">
+  <div>
+    <div class="form-input">
+      <label for="heading">Heading</label>
+      <input type="text" id="heading" />
+    </div>
+
+    <div class="form-input">
+      <label for="description">Short description</label>
+      <input type="text" id="description" />
+    </div>
+
+    <div class="form-input">
+      <label for="content">Content</label>
+      <textarea id="content"></textarea>
+    </div>
+  </div>
+  <div>
+    <div class="form-input source-input">
+      <div>
+        <label for="image">Image</label>
+
+        <div class="source-radio-group">
+          <input type="radio" id="imgURL" name="imgSource"/>
+          <label for="imgURL">URL</label>
+          <input type="radio" id="imgFile" name="imgSource"/>
+          <label for="imgFile">File</label>
+        </div>
+      </div>
+      <input type="text" id="image" />
+    </div>
+
+    <div class="form-input">
+      <label for="created">Date</label>
+    <input type="text" id="created" />
+    </div>
+
+    <div class="form-input">
+      <label for="author">Author</label>
+      <input type="text" id="author" />
+    </div>
+
+    <div class="form-input">
+      <label for="url">Source URL</label>
+      <input type="text" id="url" />
+    </div>
+
+    <div class="form-controls">
+      <button class="btn btn-primary" (click)="onSave()">Save</button>
+      <button class="btn btn-danger">Cancel</button>
+    </div>
+  </div>
+</form>

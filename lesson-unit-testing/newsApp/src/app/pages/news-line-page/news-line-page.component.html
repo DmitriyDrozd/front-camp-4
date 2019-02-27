@@ -1,0 +1,5 @@
+<app-news-line
+  [articles]="articles | keywordFilter: keywords"
+  [userName]="userName"
+></app-news-line>
+<a (click)="onLoadMore()" class="btn btn-primary load-more">Load more</a>

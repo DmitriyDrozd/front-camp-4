@@ -1,0 +1,64 @@
+@import "colors";
+@import "variables";
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
+main {
+  margin: 0 auto;
+  padding: $normal-content-padding;
+  width: $normal-app-width;
+}
+
+button {
+  background: $btn-primary-background;
+  border: 1px solid $btn-border-color;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+button,
+select,
+input[type=text] {
+  padding: 0 10px;
+  height: 30px;
+}
+
+input[type=text] {
+  height: 24px;
+}
+
+input[type=checkbox] {
+  transform: scale(1.5);
+  margin: 0 5px 0 0;
+}
+
+.btn {
+  &.btn-primary {
+    &:hover {
+      background: $btn-primary-hover-background;
+    }
+  }
+
+  &.btn-secondary {
+    background: $btn-secondary-background;
+
+    &:hover {
+      background: $btn-secondary-hover-background;
+    }
+  }
+
+  &.btn-danger {
+    background: $btn-danger-background;
+
+    &:hover {
+      background: $btn-danger-hover-background;
+    }
+  }
+}

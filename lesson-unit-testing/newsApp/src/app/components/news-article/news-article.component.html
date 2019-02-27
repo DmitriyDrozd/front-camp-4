@@ -1,0 +1,17 @@
+<div class="article">
+  <img class="article-picture" src="{{ article.urlToImage }}" alt="picture">
+  <div class="article-content">
+    <h3>{{ article.title }}</h3>
+    <p>{{ article.content }}</p>
+    <p>Date: {{ article.publishedAt || article.created | date: "dd MMM yyyy, hh:mm" }}</p>
+    <p *ngIf="!!article.author">Author: {{ article.author }}</p>
+  </div>
+</div>
+<div class="aside">
+  <div class="created">
+  </div>
+  <div class="controls" *ngIf="isControlsAvailable">
+    <button class="btn btn-primary">Edit</button>
+    <button class="btn btn-danger">Delete</button>
+  </div>
+</div>
